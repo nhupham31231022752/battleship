@@ -1,0 +1,15 @@
+D:\Cosolaptrinh\battle_ship\obj\Debug\net8.0\battle_ship.GeneratedMSBuildEditorConfig.editorconfig
+D:\Cosolaptrinh\battle_ship\obj\Debug\net8.0\battle_ship.AssemblyInfoInputs.cache
+D:\Cosolaptrinh\battle_ship\obj\Debug\net8.0\battle_ship.AssemblyInfo.cs
+D:\Cosolaptrinh\battle_ship\obj\Debug\net8.0\battle_ship.csproj.CoreCompileInputs.cache
+D:\Cosolaptrinh\battle_ship\obj\Debug\net8.0\battle_ship.sourcelink.json
+D:\Cosolaptrinh\battle_ship\bin\Debug\net8.0\battle_ship.exe
+D:\Cosolaptrinh\battle_ship\bin\Debug\net8.0\battle_ship.deps.json
+D:\Cosolaptrinh\battle_ship\bin\Debug\net8.0\battle_ship.runtimeconfig.json
+D:\Cosolaptrinh\battle_ship\bin\Debug\net8.0\battle_ship.dll
+D:\Cosolaptrinh\battle_ship\bin\Debug\net8.0\battle_ship.pdb
+D:\Cosolaptrinh\battle_ship\obj\Debug\net8.0\battle_ship.dll
+D:\Cosolaptrinh\battle_ship\obj\Debug\net8.0\refint\battle_ship.dll
+D:\Cosolaptrinh\battle_ship\obj\Debug\net8.0\battle_ship.pdb
+D:\Cosolaptrinh\battle_ship\obj\Debug\net8.0\battle_ship.genruntimeconfig.cache
+D:\Cosolaptrinh\battle_ship\obj\Debug\net8.0\ref\battle_ship.dll
