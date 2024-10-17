@@ -57,18 +57,29 @@ namespace BattleshipGame
             }
         }
 
-        public bool IsPlacementValid(Ship ship, List<(int row, int col)> positions)
+         public bool IsPlacementValid(Ship ship, List<(int row, int col)> positions, out bool isOutOfBounds, out bool isOverlapping)
         {
+            isOutOfBounds = false;
+            isOverlapping = false;
+
             foreach (var pos in positions)
             {
-                // Check if the position is valid
-                if (pos.row < 0 || pos.row >= GridSize || pos.col < 0 || pos.col >= GridSize || grid[pos.row, pos.col] != '~')
-                {
-                    return false; // Invalid placement
+                // Kiểm tra xem vị trí có vượt lưới không
+                if (pos.row < 0 || pos.row >= GridSize || pos.col < 0 || pos.col >= GridSize)
+                {    Console.WriteLine($"Vị trí ({pos.row + 1}, {(char)(pos.col + 'A')}) vượt ngoài lưới.");
+                    isOutOfBounds = true;
+                }
+                // Kiểm tra xem vị trí có trùng với tàu khác không
+                if (grid[pos.row, pos.col] != '~')
+                {Console.WriteLine($"Vị trí ({pos.row + 1}, {(char)(pos.col + 'A')}) đã có tàu khác.");
+                    isOverlapping = true;
                 }
             }
-            return true; // Valid placement
+
+            // Trả về false nếu có lỗi vượt lưới hoặc trùng vị trí
+            return !(isOutOfBounds || isOverlapping);
         }
+
 
         public void DisplayGrid()
         {
@@ -196,16 +207,27 @@ namespace BattleshipGame
                 }
 
                     // Check if placement is valid
-                    if (gridManager.IsPlacementValid(ship, positions))
+                  if (gridManager.IsPlacementValid(ship, positions, out bool isOutOfBounds, out bool isOverlapping))
                     {
                         ship.PlaceShip(positions);
                         gridManager.AddShip(ship);
                         Console.WriteLine($"{ship.Name} đã được đặt thành công.");
-                        validPlacement = true; // Break out of the loop on successful placement
+                        validPlacement = true; // Thoát vòng lặp khi đặt thành công
                     }
                     else
                     {
-                        Console.WriteLine("Vị trí đặt không hợp lệ. Vui lòng thử lại.");
+                        if (isOutOfBounds && isOverlapping)
+                        {
+                            Console.WriteLine("Vị trí đặt vượt quá lưới và trùng với tàu khác. Vui lòng thử lại.");
+                        }
+                        else if (isOutOfBounds)
+                        {
+                            Console.WriteLine("Vị trí đặt vượt quá lưới. Vui lòng thử lại.");
+                        }
+                        else if (isOverlapping)
+                        {
+                            Console.WriteLine("Vị trí đặt trùng với tàu khác. Vui lòng thử lại.");
+                        }
                     }
                 }
             }
